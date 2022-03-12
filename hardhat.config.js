@@ -4,7 +4,6 @@ require('hardhat-contract-sizer');
 require('hardhat-gas-reporter');
 require('hardhat-deploy');
 require('hardhat-deploy-ethers');
-require('@openzeppelin/hardhat-upgrades');
 
 task('accounts', 'Prints the list of accounts')
     .setAction(async (taskArgs, { ethers }) => {

@@ -5,11 +5,11 @@ pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20VotesUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20SnapshotUpgradeable.sol";
 
 contract IronchainDAO is
     UUPSUpgradeable,
-    ERC20VotesUpgradeable,
+    ERC20SnapshotUpgradeable,
     OwnableUpgradeable
 {
     function initialize(
@@ -19,10 +19,14 @@ contract IronchainDAO is
         uint256 amount
     ) external initializer {
         __Ownable_init();
-        __ERC20Votes_init();
+        __ERC20Snapshot_init();
         __ERC20_init(name, symbol);
         transferOwnership(owner);
         _mint(owner, amount);
+    }
+
+    function snapshot() external returns(uint256) {
+        return _snapshot();
     }
 
     function _authorizeUpgrade(

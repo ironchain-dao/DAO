@@ -4,9 +4,7 @@ const path = require('path');
 const BigNumber = require('bignumber.js');
 
 const config = {
-    deployment: {
-        mumbai: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    },
+    deployment: {},
     name: 'IronchainDAO Token',
     symbol: 'IRON',
     accounts: [
