@@ -40,7 +40,11 @@ describe("IronchainDAO", function () {
 
     it("IronchainDAO Upgrade", async function() {
         const IronchainDAOV2 = await ethers.getContractFactory("IronchainDAOUpgradeTest");
-        const upgraded = await upgrades.upgradeProxy(dao.address, IronchainDAOV2);
+        const upgraded = await upgrades.upgradeProxy(
+            dao.address,
+            IronchainDAOV2,
+            {deployer: owner.signer}
+        );
 
         expect(dao.address).to.equal(upgraded.address);
         await upgraded.connect(owner.signer).burn(supply);

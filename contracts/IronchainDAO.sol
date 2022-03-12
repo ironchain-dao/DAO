@@ -25,7 +25,7 @@ contract IronchainDAO is
         _mint(owner, amount);
     }
 
-    function snapshot() external returns(uint256) {
+    function snapshot() external onlyOwner returns(uint256) {
         return _snapshot();
     }
 
