@@ -4,7 +4,10 @@ const path = require('path');
 const BigNumber = require('bignumber.js');
 
 const config = {
-    deployment: {},
+    deployment: {
+        mumbai: "0xaA2c9A5e271b0519d9B3A8BB94f87331462a0352",
+        matic: "0x7e0B0332aDbEC1a84E1E264f308AE581fcda5684",
+    },
     name: 'IronchainDAO Token',
     symbol: 'IRON',
     accounts: [
